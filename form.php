@@ -43,7 +43,7 @@ $form_data = [
 
 if (empty($form_data['full_name'])) {
     $errors['field-name'] = 'ФИО обязательно для заполнения.';
-} elseif (mb_strlen($form_data['full_name']) > 150) {
+} elseif (strlen($form_data['full_name']) > 150) {
     $errors['field-name'] = 'ФИО не должно превышать 150 символов.';
 } elseif (!preg_match('/^[a-zA-Zа-яА-ЯёЁ\s\-]+$/u', $form_data['full_name'])) {
     $errors['field-name'] = 'ФИО может содержать только буквы, пробелы и дефисы.';

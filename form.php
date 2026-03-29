@@ -3,9 +3,9 @@
 session_start();
 
 $host = 'localhost';
-$dbname = 'your_login'; 
-$user = 'your_login';   
-$pass = 'your_password'; 
+$dbname = 'u82190'; 
+$user = 'u82190';   
+$pass = '8528410'; 
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);

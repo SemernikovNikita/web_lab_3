@@ -1,12 +1,11 @@
 <?php
-// index.php - страница с формой
+
 session_start();
 
-// Подключение к БД для получения списка языков
 $host = 'localhost';
-$dbname = 'your_login'; // замените на ваш логин
-$user = 'your_login';   // замените на ваш логин
-$pass = 'your_password'; // замените на ваш пароль
+$dbname = 'u82190'; 
+$user = 'u82190';   
+$pass = '8528410'; 
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
@@ -15,19 +14,16 @@ try {
     die("Ошибка подключения к БД: " . $e->getMessage());
 }
 
-// Получаем список языков для отображения в форме
 $languages = [];
 $stmt = $pdo->query("SELECT id, name FROM programming_language ORDER BY id");
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $languages[] = $row;
 }
 
-// Получаем сохраненные данные из сессии (если были ошибки)
 $form_data = $_SESSION['form_data'] ?? [];
 $errors = $_SESSION['errors'] ?? [];
 $success = $_SESSION['success'] ?? false;
 
-// Очищаем сессию после чтения
 unset($_SESSION['form_data']);
 unset($_SESSION['errors']);
 unset($_SESSION['success']);
